@@ -8,7 +8,7 @@ namespace FATEC.CubeWars.Behaviours {
     [RequireComponent(typeof(Collider))]
     public class Detect : MonoBehaviour {
         [Tooltip("Tag used to detect enemies.")]
-        public string opponentTag = "Enemy";
+        public string[] opponentTag = { "Enemy" };
         /// <summary>Reference to the opponent being attacked.</summary>
         public Collider opponentCollider;
         /// <summary>Reference to the opponent Transform.</summary>
@@ -34,17 +34,19 @@ namespace FATEC.CubeWars.Behaviours {
             //If the current opponent is destroyed, checks whether
             //any other colliders staying on the trigger are
             //enemies that can be targeted.
-            if (this.opponent == null && other.CompareTag(this.opponentTag)) {
-                this.opponent = other;
+            foreach (string tag in this.opponentTag) {
+                if (this.opponent == null && other.CompareTag(tag)) {
+                    this.opponent = other;
+                }
             }
         }
 
         protected void OnTriggerEnter(Collider other) {
-            if (this.opponentCollider != null ||
-                !other.CompareTag(this.opponentTag)) {
-                return;
+            foreach (string tag in this.opponentTag) {
+                if (this.opponentCollider != null || !other.CompareTag(tag)) {
+                    return;
+                }
             }
-
             this.opponent = other;
         }
 

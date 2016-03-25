@@ -6,7 +6,7 @@ namespace FATEC.CubeWars.Behaviours {
     /// Shoot on enemy.
     /// </summary>
     [RequireComponent(typeof(Detect))]
-    public class Shoot : MonoBehaviour {
+    public class Shoot : BaseBehaviour {
         public GameObject projectilePrefab;
         [Tooltip("Fire rate delay (seconds).")]
         public float delay = 1.0f;
@@ -17,7 +17,8 @@ namespace FATEC.CubeWars.Behaviours {
         /// <summary>Reference to the weapon coroutine.</summary>
         protected Coroutine weapon;
 
-        protected void Awake() {
+        protected override void Awake() {
+            base.Awake();
             this.opponentDetector = gameObject.GetComponent<Detect>();
         }
 

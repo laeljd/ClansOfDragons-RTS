@@ -70,11 +70,12 @@
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Detect.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DetectAndFire.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Health.cs" />
     <Compile Include="Assets\Scripts\Behaviours\LookAt.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\MouseActions.cs" />
     <Compile Include="Assets\Scripts\Behaviours\MoveProjectile.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Shoot.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\MouseAction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
