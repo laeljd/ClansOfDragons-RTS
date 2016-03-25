@@ -5,7 +5,7 @@ namespace FATEC.CubeWars.Behaviours {
 	/// <summary>
 	/// Moves the current game object to a given target position.
 	/// </summary>
-	public class MoveToTarget : BaseBehaviour {
+	public class MoveProjectile : BaseBehaviour {
 		[Tooltip("Postion to move to.")]
 		public Vector3 targetPosition;
 		[Tooltip("Movement speed.")]

@@ -48,7 +48,7 @@ namespace FATEC.CubeWars.Behaviours {
                 var projectile = Instantiate(this.projectilePrefab);
                 projectile.GetComponent<Transform>().position =
                     this.transform.TransformPoint(this.firePosition);
-                projectile.GetComponent<MoveToTarget>().targetPosition =
+                projectile.GetComponent<MoveProjectile>().targetPosition =
                     this.opponentDetector.opponentTransform.position;
 
                 yield return new WaitForSeconds(this.delay);
