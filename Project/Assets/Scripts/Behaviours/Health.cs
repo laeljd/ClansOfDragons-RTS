@@ -7,18 +7,30 @@ namespace FATEC.CubeWars.Behaviours {
 	/// </summary>
 	[RequireComponent(typeof(Collider))]
 	public class Health : BaseBehaviour {
-		[Tooltip("Available health.")]
-		public int hp = 5;
+        
+        public enum UnityType {
+            UnityLight, UnityMedium, UnityHeavy, Base
+        }
+
+        [Tooltip("Config values.")]
+        public UnityConfig config;
+        [Tooltip("Type of unity.")]
+        /// <summary>Type of unity</summary>
+        public UnityType type;
+
+        /// <summary>Available health</summary>
+        protected float hp;
 		[Tooltip("Slider health.")]
 		public Slider healthSlider;
 		[Tooltip("Tag used to check for collisions.")]
 		public string collisionTag = "Projectile";
 
 		/// <summary>Currently available health.</summary>
-		protected int currentHp;
+		protected float currentHp;
 
 		protected void Start() {
-			this.currentHp = this.hp;
+            this. hp = config.GetHealt((int)type);
+            this.currentHp = this.hp;
 		}
 
 		protected void OnTriggerEnter(Collider other) {
