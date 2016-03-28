@@ -11,8 +11,8 @@ namespace FATEC.CubeWars.Behaviours {
         public string unityTag = "Unity";
         [Tooltip("Enemy tag.")]
         public string enemyTag = "Enemy";
-        [Tooltip("Base tag.")]
-        public string baseTag = "Base";
+        [Tooltip("Base player tag.")]
+        public string baseTag = "BasePlayer";
         [Tooltip("Raycast distance.")]
         public float distance = 1000.0f;
         [Tooltip("Reference to the camera.")]
@@ -51,7 +51,6 @@ namespace FATEC.CubeWars.Behaviours {
                     //if (hit.collider.CompareTag(this.enemyTag)) {
                     //}
                     if (hit.collider.CompareTag(this.baseTag)) {
-                        Debug.Log("base");
                         if (BaseMenu.activeSelf) {
                             BaseMenu.SetActive(false);
                         }

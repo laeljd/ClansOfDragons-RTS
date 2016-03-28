@@ -6,7 +6,7 @@ namespace FATEC.CubeWars.Behaviours {
     /// Attack the base of player
     /// </summary>
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyAttack : BaseBehaviour {
+    public class EnemyBaseAttack : BaseBehaviour {
         [Tooltip("Detector of opponent.")]
         public Detect opponentDetector;
         [Tooltip("Position of base to attack.")]
@@ -27,9 +27,7 @@ namespace FATEC.CubeWars.Behaviours {
             }
             else {
                 this.unity.ResetPath();
-
             }
         }
-
     }
 }

@@ -45,7 +45,12 @@ namespace FATEC.CubeWars.Behaviours {
 			this.currentHp -= 1;
 
 			if (this.currentHp == 0) {
-				Destroy(this.gameObject);
+                if (this.CompareTag("Base")){
+                    gameObject.SetActive(false);
+                }
+                else {
+                    Destroy(this.gameObject);
+                }
 			}
 		}
 	}
