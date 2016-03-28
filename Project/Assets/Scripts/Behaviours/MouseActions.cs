@@ -20,7 +20,7 @@ namespace FATEC.CubeWars.Behaviours {
         [Tooltip("Base menu to enable/disabe")]
         public GameObject BaseMenu;
         /// <summary> Unity selected to move </summary>
-        protected NavMeshAgent unity;
+        public NavMeshAgent unity;
 
         protected void Update() {
             var ray1 = this.camera.ScreenPointToRay(Input.mousePosition);
