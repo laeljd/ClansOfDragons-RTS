@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
 	/// <summary>
 	/// Moves the current game object to a given target position.
 	/// </summary>

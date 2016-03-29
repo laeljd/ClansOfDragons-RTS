@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
     /// <summary>
     /// Aim on enemy.
     /// </summary>
-    [RequireComponent(typeof(Detect))]
     public class LookAt : BaseBehaviour {
-        [Tooltip("Detector of opponent.")]
-        public Detect opponentDetector;
+        [Tooltip("Detectoror of object.")]
+        public Detector detector;
 
         protected override void Awake() {
             base.Awake();
-            this.opponentDetector = gameObject.GetComponent<Detect>();
         }
 
         protected void Update() {
-            if (this.opponentDetector.opponentTransform != null) {
-                this.transform.LookAt(this.opponentDetector.opponentTransform);
-                this.transform.root.LookAt(this.opponentDetector.opponentTransform);
+            if (this.detector.objectTransform != null) {
+                this.transform.LookAt(this.detector.objectTransform);
+                this.transform.root.LookAt(this.detector.objectTransform);
             }
         }
 

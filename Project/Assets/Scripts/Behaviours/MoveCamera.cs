@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
     public class MoveCamera : BaseBehaviour {
         [Tooltip("Camera Speed")]
         public float speed = 15;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
 	/// <summary>
 	/// Base behaviour.
 	/// </summary>

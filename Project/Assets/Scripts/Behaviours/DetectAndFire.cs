@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
     /// <summary>
-    /// Detects an enemy and fires.
+    /// Detectors an enemy and fires.
     /// </summary>
     [RequireComponent(typeof(Collider))]
-    public class DetectAndFire : BaseBehaviour {
+    public class DetectorAndFire : BaseBehaviour {
         [Tooltip("Tag used to detect enemies.")]
         public string enemyTag = "Enemy";
         [Tooltip("Projectile prefab.")]

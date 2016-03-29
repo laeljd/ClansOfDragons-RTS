@@ -1,29 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
     /// <summary>
     /// Shoot on enemy.
     /// </summary>
-    [RequireComponent(typeof(Detect))]
     public class Shoot : BaseBehaviour {
+        [Tooltip("Object to instantiate.")]
         public GameObject projectilePrefab;
-        [Tooltip("Fire rate delay (seconds).")]
-        public float delay = 1.0f;
-        [Tooltip("Fire local position.")]
-        public Vector3 firePosition;
-        [Tooltip("Detector of opponent.")]
-        public Detect opponentDetector;
+        [Tooltip("Detectoror of object to attack.")]
+        public Detector detector;
+        [Tooltip("Tag to identify origin of power.")]
+        public string tagProjectile;
+        [Tooltip("Center of config values.")]
+        public CenterConfig fireRateConfig;
+        [Tooltip("Type of unit.")]
+        public CenterConfig.unitType type;
+        /// <summary>Fire local position.</summary>
+        protected Vector3 firePosition;
         /// <summary>Reference to the weapon coroutine.</summary>
         protected Coroutine weapon;
+        /// <summary>Fire rate delay (seconds).</summary>
+        protected float fireRate;
+        /// <summary>Power of projectile.</summary>
+        protected float power;
 
         protected override void Awake() {
             base.Awake();
-            this.opponentDetector = gameObject.GetComponent<Detect>();
+            if (this.detector == null) {
+                this.detector = gameObject.GetComponent<Detector>();
+            }
+            if (this.fireRateConfig == null) {
+                this.fireRateConfig = GameObject.FindGameObjectWithTag("CenterConfig").GetComponent<CenterConfig>();
+            }
+            this.fireRate = this.fireRateConfig.GetFireRate((int)type);
+            this.power = this.fireRateConfig.GetPower((int)type);
         }
 
         protected void Update() {
-            if (this.opponentDetector.opponentCollider == null) {
+            if (this.detector.objectCollider == null) {
                 if (this.weapon != null) {
                     this.StopCoroutine(this.weapon);
                     this.weapon = null;
@@ -42,17 +57,17 @@ namespace FATEC.CubeWars.Behaviours {
         /// </summary>
         protected IEnumerator Fire() {
             while (true) {
-                if (this.opponentDetector.opponentTransform == null) {
+                if (this.detector.objectTransform == null) {
                     break;
                 }
 
                 var projectile = Instantiate(this.projectilePrefab);
-                projectile.GetComponent<Transform>().position =
-                    this.transform.TransformPoint(this.firePosition);
-                projectile.GetComponent<MoveProjectile>().targetPosition =
-                    this.opponentDetector.opponentTransform.position;
-
-                yield return new WaitForSeconds(this.delay);
+                projectile.GetComponent<Transform>().position = this.transform.TransformPoint(this.firePosition);
+                projectile.GetComponent<MoveProjectile>().targetPosition = this.detector.objectTransform.position;
+                var power = projectile.GetComponent<Power>();
+                power.tag = this.tagProjectile;
+                power.damage = this.power;
+                yield return new WaitForSeconds(this.fireRate);
             }
         }
     }

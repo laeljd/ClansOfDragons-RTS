@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
     /// <summary>
     /// Moves a NavMeshAgent when tapping on the scenario.
     /// </summary>
     public class MouseActions : BaseBehaviour {
         [Tooltip("Ground tag.")]
         public string groundTag = "Ground";
-        [Tooltip("Unity tag.")]
-        public string unityTag = "Unity";
+        [Tooltip("Unit tag.")]
+        public string unitTag = "Unit";
         [Tooltip("Enemy tag.")]
         public string enemyTag = "Enemy";
         [Tooltip("Base player tag.")]
@@ -19,8 +19,8 @@ namespace FATEC.CubeWars.Behaviours {
         public new Camera camera;
         [Tooltip("Base menu to enable/disabe")]
         public GameObject BaseMenu;
-        /// <summary> Unity selected to move </summary>
-        public NavMeshAgent unity;
+        /// <summary> Unit selected to move </summary>
+        public NavMeshAgent unit;
 
         protected void Update() {
             var ray1 = this.camera.ScreenPointToRay(Input.mousePosition);
@@ -38,14 +38,14 @@ namespace FATEC.CubeWars.Behaviours {
                 if (Physics.Raycast(ray, out hit, this.distance)) {
                     if (hit.collider.CompareTag(this.groundTag)) {
                         if (!BaseMenu.activeSelf) {
-                            if (this.unity != null) {
-                                this.unity.SetDestination(hit.point);
+                            if (this.unit != null) {
+                                this.unit.SetDestination(hit.point);
                             }
                         }
                     }
-                    if (hit.collider.CompareTag(this.unityTag)) {
+                    if (hit.collider.CompareTag(this.unitTag)) {
                         if (!BaseMenu.activeSelf) {
-                            this.unity = hit.collider.GetComponent<NavMeshAgent>();
+                            this.unit = hit.collider.GetComponent<NavMeshAgent>();
                         }
                     }
                     //if (hit.collider.CompareTag(this.enemyTag)) {

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace FATEC.CubeWars.Behaviours {
+namespace FATEC.ClansOfDragons.Behaviours {
 	/// <summary>
 	/// Makes the object which it is attached to align itself with the camera.
 	/// </summary
 	/// <remarks>
-	/// Original script from http://wiki.unity3d.com/index.php?title=CameraFacingBillboard.
+	/// Original script from http://wiki.unit3d.com/index.php?title=CameraFacingBillboard.
                	/// </remarks>
 	public class CameraFaceBillboard : BaseBehaviour {
 		/// <summary>he camera.</summary>
@@ -17,7 +17,6 @@ namespace FATEC.CubeWars.Behaviours {
 
 		protected override void Awake() {
 			base.Awake();
-
 			if (this.camera == null) {
 				this.cameraTransform = Camera.main.GetComponent<Transform>();
 			} else {
@@ -26,8 +25,7 @@ namespace FATEC.CubeWars.Behaviours {
 		}
 
 		protected void Update() {
-			this.transform.LookAt(transform.position + this.cameraTransform.rotation * Vector3.forward,
-				this.cameraTransform.rotation * Vector3.up);
+			this.transform.LookAt(transform.position + this.cameraTransform.rotation * Vector3.forward, this.cameraTransform.rotation * Vector3.up);
 		}
 	}
 }
