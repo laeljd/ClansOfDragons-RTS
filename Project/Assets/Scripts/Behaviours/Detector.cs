@@ -1,11 +1,10 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FATEC.ClansOfDragons.Behaviours {
     /// <summary>
     /// Detect an object to only one cause.
     /// </summary>
-    //[RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Collider))]
     public class Detector : MonoBehaviour {
         [Tooltip("Info of Detector")]
         [Multiline]

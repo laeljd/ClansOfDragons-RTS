@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace FATEC.ClansOfDragons.Behaviours {
@@ -8,21 +9,42 @@ namespace FATEC.ClansOfDragons.Behaviours {
     public class Health : BaseBehaviour {
         [Tooltip("Slider health.")]
         public Slider healthSlider;
-        [Tooltip("Center of config values.")]
-        public CenterConfig HPconfig;
         [Tooltip("Type of unit.")]
         public CenterConfig.unitType type;
+       
         /// <summary>Currently available health.</summary>
         protected float currentHp;
         /// <summary>Available health</summary>
         protected float hp;
+        /// <summary>Center of config values..</summary>
+        protected CenterConfig config;
+
+        /// <summary>
+        /// Name of gameobject coins to enemy, auto get coins for add
+        /// </summary>
+        public string coinsO;
+        /// <summary>
+        /// Name of gameobject coins to self, auto get coins for add
+        /// </summary>
+        public string coinsS;
+        /// <summary>
+        /// scene load if destroy base
+        /// </summary>
+        public string scene;
+
+        //[Tooltip("Coins of opponent for add if destroy the unit.")]
+        protected Coins coinsOpponent;
+        //[Tooltip("Coins of self for add if destroy the unit.")]
+        protected Coins coinsSelf;
 
         protected void Start() {
-            if (this.HPconfig == null) {
-                this.HPconfig = GameObject.FindGameObjectWithTag("CenterConfig").GetComponent<CenterConfig>();
-            }
-            this.hp = this.HPconfig.GetHealt((int)type);
+            this.config = new CenterConfig();
+            this.hp = this.config.GetHealt((int)type);
             this.currentHp = this.hp;
+
+            coinsOpponent = GameObject.Find(coinsO).GetComponent<Coins>();
+            coinsSelf = GameObject.Find(coinsS).GetComponent<Coins>();
+
         }
 
         protected void Update() {
@@ -31,8 +53,15 @@ namespace FATEC.ClansOfDragons.Behaviours {
 
         public void ChangeHealth(float amount) {
             this.currentHp += amount;
-            if (this.currentHp == 0) {
-                Destroy(this.gameObject);
+            if (this.currentHp <= 0) {
+                coinsOpponent.ChangeCoins(-this.config.GetValue((int)type));
+                coinsSelf.ChangeCoins(-(this.config.GetValue((int)type)/2));
+                if (type != CenterConfig.unitType.Base) {
+                    Destroy(this.gameObject);
+                }
+                else {
+                    SceneManager.LoadScene(scene);
+                }
             }
         }
     }

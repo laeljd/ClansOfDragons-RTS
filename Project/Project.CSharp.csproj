@@ -63,13 +63,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Behaviours\AI.cs" />
     <Compile Include="Assets\Scripts\Behaviours\BaseBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\BuyUnit.cs" />
     <Compile Include="Assets\Scripts\Behaviours\CameraFaceBillboard.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\CustonEditor.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\Coins.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnTime.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DetectAndFire.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Detector.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\FunctionButton.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Health.cs" />
     <Compile Include="Assets\Scripts\Behaviours\HealthManager.cs" />
     <Compile Include="Assets\Scripts\Behaviours\LookAt.cs" />
@@ -77,9 +80,9 @@
     <Compile Include="Assets\Scripts\Behaviours\MoveAgentTo.cs" />
     <Compile Include="Assets\Scripts\Behaviours\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\Behaviours\MoveProjectile.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\Power.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Shoot.cs" />
     <Compile Include="Assets\Scripts\CenterConfig.cs" />
+    <Compile Include="Assets\Scripts\Power.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -12,19 +12,17 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public Detector damageDetector;
         [Tooltip("Detector used to check for collisions to increase health.")]
         public Detector restoreDetector;
-        [Tooltip("Center of config values.")]
-        public CenterConfig restoreRateConfig;
         [Tooltip("Type of unit.")]
         public CenterConfig.unitType type;
-        /// <summary>rRate to rstore health (secondes).</summary>
+        /// <summary>Rate to rstore health (secondes).</summary>
         protected float restoreRate;
         /// <summary>Coroutine to start and stop restore.</summary>
         protected Coroutine restore;
+        /// <summary>Center of config values.</summary>
+        protected CenterConfig restoreRateConfig;
 
         protected void Awake() {
-            if (this.restoreRateConfig == null) {
-                this.restoreRateConfig = GameObject.FindGameObjectWithTag("CenterConfig").GetComponent<CenterConfig>();
-            }
+            this.restoreRateConfig = new CenterConfig();
             this.restoreRate = this.restoreRateConfig.GetRestoreRate((int)type);
         }
 

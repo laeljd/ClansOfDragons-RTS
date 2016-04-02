@@ -3,20 +3,20 @@ using System.Collections;
 
 
 namespace FATEC.ClansOfDragons.Behaviours {
-    public class CenterConfig : MonoBehaviour {
+    public class CenterConfig{
 
-        public float unitLightHealt = 3f;
-        public float unitMediumHealt = 5f;
-        public float unitHeavyHealt = 8f;
-        public float baseHealt = 30f;
+        public float unitLightHealt = 18f;
+        public float unitMediumHealt = 54f;
+        public float unitHeavyHealt = 92f;
+        public float baseHealt = 200f;
 
         public float unitLightSpeed = 1f;
         public float unitMediumSpeed = 0.7f;
         public float unitHeavySpeed = 0.4f;
 
         public float unitLightFireRate = 0.5f;
-        public float unitMediumFireRate = 0.7f;
-        public float unitHeavyFireRate = 1f;
+        public float unitMediumFireRate = 1f;
+        public float unitHeavyFireRate = 2f;
         public float BaseFireRate = 1f;
 
         public float unitLightRestoreRate = 1f;
@@ -25,9 +25,13 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public float BaseRestoreRate = 1f;
 
         public float unitLightPower = 1f;
-        public float unitMediumPower = 2f;
-        public float unitHeavyPower = 3f;
-        public float BasePower = 2f;
+        public float unitMediumPower = 3f;
+        public float unitHeavyPower = 12f;
+        public float BasePower = 6f;
+
+        public int unitLightValue = 50;
+        public int unitMediumValue = 100;
+        public int unitHeavyValue = 150;
 
         private float defaut = 1f;
 
@@ -122,6 +126,23 @@ namespace FATEC.ClansOfDragons.Behaviours {
                 return this.defaut;
             }
         }
+
+
+        public int GetValue(int type) {
+            if (type == (int)unitType.UnitLight) {
+                return this.unitLightValue;
+            }
+            else if (type == (int)unitType.UnitMedium) {
+                return this.unitMediumValue;
+            }
+            else if (type == (int)unitType.UnitHeavy) {
+                return this.unitHeavyValue;
+            }
+            else {
+                return (int)this.defaut;
+            }
+        }
+
 
     }
 }

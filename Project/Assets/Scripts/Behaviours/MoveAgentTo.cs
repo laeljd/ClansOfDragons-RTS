@@ -11,14 +11,18 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public Detector detector;
         [Tooltip("Position of target to move.")]
         public Transform targetPosition;
-        [Tooltip("Center of config values.")]
-        public CenterConfig speedConfig;
         [Tooltip("Type of unit.")]
         public CenterConfig.unitType type;
         /// <summary>Unit to move self</summary>
         protected NavMeshAgent unit;
         /// <summary>Speed of moviment</summary>
         protected float speed;
+        /// <summary>Center of config values.</summary>
+        public CenterConfig speedConfig;
+        /// <summary>
+        /// name of opponent base to auto get to attack
+        /// </summary>
+        public string nameBase;
 
         protected override void Awake() {
             base.Awake();
@@ -29,11 +33,11 @@ namespace FATEC.ClansOfDragons.Behaviours {
                 this.targetPosition = this.transform;
             }
             this.unit = gameObject.GetComponent<NavMeshAgent>();
-            if (this.speedConfig == null) {
-                this.speedConfig = GameObject.FindGameObjectWithTag("CenterConfig").GetComponent<CenterConfig>();
-            }
+            this.speedConfig = new CenterConfig();
             this.speed = this.speedConfig.GetSpeed((int)type);
             this.unit.speed = this.speed;
+
+            targetPosition = GameObject.Find(nameBase).transform;
         }
 
         protected void Update() {

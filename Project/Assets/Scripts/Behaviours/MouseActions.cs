@@ -57,7 +57,6 @@ namespace FATEC.ClansOfDragons.Behaviours {
                         else {
                             BaseMenu.SetActive(true);
                         }
-                        Debug.Log(BaseMenu.activeSelf);
                     }
                 }
             }

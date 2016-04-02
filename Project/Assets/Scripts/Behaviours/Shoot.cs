@@ -12,8 +12,6 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public Detector detector;
         [Tooltip("Tag to identify origin of power.")]
         public string tagProjectile;
-        [Tooltip("Center of config values.")]
-        public CenterConfig fireRateConfig;
         [Tooltip("Type of unit.")]
         public CenterConfig.unitType type;
         /// <summary>Fire local position.</summary>
@@ -24,17 +22,17 @@ namespace FATEC.ClansOfDragons.Behaviours {
         protected float fireRate;
         /// <summary>Power of projectile.</summary>
         protected float power;
+        /// <summary>Center of config values.</summary>
+        public CenterConfig fireConfig;
 
         protected override void Awake() {
             base.Awake();
             if (this.detector == null) {
                 this.detector = gameObject.GetComponent<Detector>();
             }
-            if (this.fireRateConfig == null) {
-                this.fireRateConfig = GameObject.FindGameObjectWithTag("CenterConfig").GetComponent<CenterConfig>();
-            }
-            this.fireRate = this.fireRateConfig.GetFireRate((int)type);
-            this.power = this.fireRateConfig.GetPower((int)type);
+            this.fireConfig = new CenterConfig();
+            this.fireRate = this.fireConfig.GetFireRate((int)type);
+            this.power = this.fireConfig.GetPower((int)type);
         }
 
         protected void Update() {
