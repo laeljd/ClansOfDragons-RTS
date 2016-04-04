@@ -8,7 +8,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public float unitLightHealt = 18f;
         public float unitMediumHealt = 54f;
         public float unitHeavyHealt = 92f;
-        public float baseHealt = 200f;
+        public float baseHealt = 300f;
 
         public float unitLightSpeed = 1f;
         public float unitMediumSpeed = 0.7f;

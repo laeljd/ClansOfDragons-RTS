@@ -60,7 +60,9 @@ namespace FATEC.ClansOfDragons.Behaviours {
                 }
 
                 var projectile = Instantiate(this.projectilePrefab);
-                projectile.GetComponent<Transform>().position = this.transform.TransformPoint(this.firePosition);
+                var ProjectileTransform = projectile.GetComponent<Transform>();
+                ProjectileTransform.position = this.transform.TransformPoint(this.firePosition);
+                ProjectileTransform.rotation = this.transform.rotation;
                 projectile.GetComponent<MoveProjectile>().targetPosition = this.detector.objectTransform.position;
                 var power = projectile.GetComponent<Power>();
                 power.tag = this.tagProjectile;

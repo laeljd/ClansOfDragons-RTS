@@ -12,8 +12,8 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public Text text;
 
         protected void Update() {
-            if (text != null) {
-                text.text = (coins).ToString();
+            if (this.text != null) {
+                this.text.text = "$: "+(this.coins).ToString();
             }
         }
 

@@ -17,8 +17,11 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public new Transform transform;
         [Tooltip("Base menu to enable/disabe")]
         public GameObject BaseMenu;
+        [Tooltip("Amount of the units")]
+        public UnitCount unitAmount;
         [Tooltip("Type of unit for discont the value of coins")]
         public CenterConfig.unitType type;
+
         /// <summary>Value of unit.</summary>
         protected int unitValue;
         /// <summary>Center of config values.</summary>
@@ -33,9 +36,11 @@ namespace FATEC.ClansOfDragons.Behaviours {
         }
 
         public void Buy(int type) {
-            if (coins.ChangeCoins(this.unitValue)) {
-                GameObject.Instantiate(this.prefab, this.transform.position, Quaternion.identity);
-                BaseMenu.SetActive(false);
+            if (this.unitAmount.currentUnits < this.unitAmount.unitAmountMax) {
+                if (coins.ChangeCoins(this.unitValue)) {
+                    GameObject.Instantiate(this.prefab, this.transform.position, Quaternion.identity);
+                    BaseMenu.SetActive(false);
+                }
             }
         }
     }

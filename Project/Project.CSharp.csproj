@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Behaviours\Coins.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnTime.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\DetectAndFire.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Detector.cs" />
     <Compile Include="Assets\Scripts\Behaviours\FunctionButton.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Health.cs" />
@@ -81,6 +80,7 @@
     <Compile Include="Assets\Scripts\Behaviours\MoveCamera.cs" />
     <Compile Include="Assets\Scripts\Behaviours\MoveProjectile.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Behaviours\UnitCount.cs" />
     <Compile Include="Assets\Scripts\CenterConfig.cs" />
     <Compile Include="Assets\Scripts\Power.cs" />
   </ItemGroup>

@@ -19,6 +19,10 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public new Camera camera;
         [Tooltip("Base menu to enable/disabe")]
         public GameObject BaseMenu;
+        [Tooltip("Prefab mark of the selected")]
+        public GameObject mark;
+        /// <summary>Current mark</summary>
+        protected GameObject currentMark;
         /// <summary> Unit selected to move </summary>
         protected NavMeshAgent unit;
 
@@ -58,6 +62,17 @@ namespace FATEC.ClansOfDragons.Behaviours {
                             BaseMenu.SetActive(true);
                         }
                     }
+                }
+            }
+
+            if (this.unit != null) {
+                if (this.currentMark == null) {
+                    this.currentMark = Instantiate(mark);
+                }
+                else {
+                    this.currentMark.transform.SetParent(this.unit.gameObject.transform);
+                    this.currentMark.transform.localPosition = new Vector3(0, -this.unit.baseOffset, 0);
+                    this.currentMark.transform.localScale = new Vector3(this.unit.radius, this.unit.radius, this.unit.height / 2);
                 }
             }
         }
