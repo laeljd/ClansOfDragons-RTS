@@ -11,7 +11,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public Slider healthSlider;
         [Tooltip("Type of unit.")]
         public CenterConfig.unitType type;
-       
+
         /// <summary>Currently available health.</summary>
         protected float currentHp;
         /// <summary>Available health</summary>
@@ -53,9 +53,12 @@ namespace FATEC.ClansOfDragons.Behaviours {
 
         public void ChangeHealth(float amount) {
             this.currentHp += amount;
+            if (this.currentHp >= this.hp) {
+                this.currentHp = this.hp;
+            }
             if (this.currentHp <= 0) {
                 coinsOpponent.ChangeCoins(-this.config.GetValue((int)type));
-                coinsSelf.ChangeCoins(-(this.config.GetValue((int)type)/2));
+                coinsSelf.ChangeCoins(-(this.config.GetValue((int)type) / 2));
                 if (type != CenterConfig.unitType.Base) {
                     Destroy(this.gameObject);
                 }

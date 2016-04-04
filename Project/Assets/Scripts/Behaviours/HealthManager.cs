@@ -41,7 +41,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
             if (this.restoreDetector != null) {
                 if (this.restoreDetector.objectCollider != null) {
                     if (restore == null) {
-                        var power = this.restoreDetector.objectCollider.gameObject.GetComponent<Power>();
+                        var power = this.restoreDetector.objectCollider.GetComponent<Power>();
                         if (power != null) {
                             this.restore = StartCoroutine(RestoreHealth(power.restore));
                         }
@@ -60,8 +60,10 @@ namespace FATEC.ClansOfDragons.Behaviours {
         /// Change the current game object health.
         /// </summary>
         protected IEnumerator RestoreHealth(float amount) {
-            this.health.ChangeHealth(amount);
-            yield return new WaitForSeconds(this.restoreRate);
+            while (true) {
+                this.health.ChangeHealth(amount);
+                yield return new WaitForSeconds(this.restoreRate);
+            }
         }
     }
 }

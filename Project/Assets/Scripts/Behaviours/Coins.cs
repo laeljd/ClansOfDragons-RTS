@@ -7,7 +7,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
     /// </summary>
     public class Coins : MonoBehaviour{
         [Tooltip("Amount initial of coins")]
-        public int coins = 250;
+        public int coins = 200;
         [Tooltip("Text for update in screen")]
         public Text text;
 
@@ -18,6 +18,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         }
 
         public bool ChangeCoins(int amount) {
+            //only buy if have coins
             if(this.coins >= amount) {
                 this.coins -= amount;
                 return true;

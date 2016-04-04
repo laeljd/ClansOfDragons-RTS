@@ -20,7 +20,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         [Tooltip("Base menu to enable/disabe")]
         public GameObject BaseMenu;
         /// <summary> Unit selected to move </summary>
-        public NavMeshAgent unit;
+        protected NavMeshAgent unit;
 
         protected void Update() {
             var ray1 = this.camera.ScreenPointToRay(Input.mousePosition);
