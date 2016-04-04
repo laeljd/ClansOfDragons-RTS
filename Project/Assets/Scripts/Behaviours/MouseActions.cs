@@ -27,39 +27,36 @@ namespace FATEC.ClansOfDragons.Behaviours {
         protected NavMeshAgent unit;
 
         protected void Update() {
-            var ray1 = this.camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit1;
-
-
-            if (Physics.Raycast(ray1, out hit1, this.distance)) {
-                Debug.DrawLine(this.camera.ScreenPointToRay(Input.mousePosition).origin, hit1.point, Color.cyan);
-            }
 
             if (Input.GetMouseButtonDown(0)) {
                 var ray = this.camera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
                 if (Physics.Raycast(ray, out hit, this.distance)) {
-                    if (hit.collider.CompareTag(this.groundTag)) {
-                        if (!BaseMenu.activeSelf) {
-                            if (this.unit != null) {
-                                this.unit.SetDestination(hit.point);
-                            }
-                        }
-                    }
                     if (hit.collider.CompareTag(this.unitTag)) {
                         if (!BaseMenu.activeSelf) {
                             this.unit = hit.collider.GetComponent<NavMeshAgent>();
                         }
                     }
-                    //if (hit.collider.CompareTag(this.enemyTag)) {
-                    //}
                     if (hit.collider.CompareTag(this.baseTag)) {
                         if (BaseMenu.activeSelf) {
                             BaseMenu.SetActive(false);
                         }
                         else {
                             BaseMenu.SetActive(true);
+                        }
+                    }
+                }
+            }
+            if (Input.GetMouseButtonDown(1)) {
+                var ray = this.camera.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit2;
+                if (Physics.Raycast(ray, out hit2, this.distance)){
+                    if (hit2.collider.CompareTag(this.groundTag)) {
+                        if (!BaseMenu.activeSelf) {
+                            if (this.unit != null) {
+                                this.unit.SetDestination(hit2.point);
+                            }
                         }
                     }
                 }
