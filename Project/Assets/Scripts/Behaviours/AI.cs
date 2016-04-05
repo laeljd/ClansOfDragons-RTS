@@ -40,7 +40,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
 
         void Update() {
             if (this.unitAmount.currentUnits < this.unitAmount.unitAmountMax) {
-                if (step <= 8) {
+                if (step <= 4) {
                     if (nLight <= 2) {
                         if (coins.coins >= 50) {
                             if (coins.ChangeCoins(unitConfig.GetValue((int)CenterConfig.unitType.UnitLight))) {
@@ -67,7 +67,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
                         }
                     }
                 }
-                else {
+                else if (step > 4 && step <= 8) {
                     if (nMedium <= 2) {
                         if (coins.coins >= 100) {
                             nLight = 0;
@@ -86,6 +86,21 @@ namespace FATEC.ClansOfDragons.Behaviours {
                         }
                     }
                 }
+                else {
+                    if (coins.coins >= 150) {
+                        nMedium = 0;
+                        if (coins.ChangeCoins(unitConfig.GetValue((int)CenterConfig.unitType.UnitHeavy))) {
+                            GameObject.Instantiate(this.unitHeavy, this.transform.position, Quaternion.identity);
+                        }
+                        else if (coins.coins >= 100) {
+                            nLight = 0;
+                            if (coins.ChangeCoins(unitConfig.GetValue((int)CenterConfig.unitType.UnitMedium))) {
+                                nMedium++;
+                                GameObject.Instantiate(this.unitMedium, this.transform.position, Quaternion.identity);
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -95,7 +110,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         protected IEnumerator AutoGiveCoins() {
             while (true) {
                 this.coins.ChangeCoins(-this.coinsAmount);
-                this.coinsAmount += 10;
+                this.coinsAmount += 25;
                 this.step++;
                 yield return new WaitForSeconds(this.coinsTime);
             }

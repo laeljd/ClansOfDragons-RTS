@@ -16,7 +16,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         protected void Update() {
             if (this.detector.objectTransform != null) {
                 this.transform.LookAt(this.detector.objectTransform);
-                this.transform.root.LookAt(this.detector.objectTransform);
+                //this.transform.root.LookAt(this.detector.objectTransform);
             }
         }
 

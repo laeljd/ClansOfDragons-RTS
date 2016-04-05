@@ -1,0 +1,33 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Behaviours\FunctionButton.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Behaviours\FunctionButton.cs" Line="37" Column="32" />
+      <File FileName="E:\FATEC\Jogos para consoles\BaseDefender\Assets\Scripts\GameController.cs" Line="1" Column="1" />
+      <File FileName="E:\FATEC\Jogos para consoles\BaseDefender\Assets\Scripts\Play.cs" Line="1" Column="1" />
+      <File FileName="E:\FATEC\Jogos para consoles\BaseDefender\Assets\Scripts\SpawnerController.cs" Line="1" Column="1" />
+      <File FileName="E:\FATEC\Jogos para consoles\BaseDefender\Assets\Scripts\ShotMover.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\Coins.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\CameraFaceBillboard.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\LookAt.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\MoveAgentTo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\MoveProjectile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\UnitCount.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\Shoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\Health.cs" Line="66" Column="28" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

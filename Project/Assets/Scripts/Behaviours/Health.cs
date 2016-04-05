@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace FATEC.ClansOfDragons.Behaviours {
@@ -63,7 +63,9 @@ namespace FATEC.ClansOfDragons.Behaviours {
                     Destroy(this.gameObject);
                 }
                 else {
-                    SceneManager.LoadScene(scene);
+					Application.LoadLevel(scene);
+					
+                    //SceneManager.LoadScene(scene);
                 }
             }
         }

@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 namespace FATEC.ClansOfDragons.Behaviours {
 
@@ -26,13 +26,16 @@ namespace FATEC.ClansOfDragons.Behaviours {
         // Update is called once per frame
         protected void Action(Function function) {
             if(function == Function.Start) {
-                SceneManager.LoadScene("Game");
+				Application.LoadLevel("Game");
+                //SceneManager.LoadScene("Game");
             }
             if (function == Function.ReturnToMenu) {
-                SceneManager.LoadScene("Main");
+				Application.LoadLevel("Main");
+                //SceneManager.LoadScene("Main");
             }
             if (function == Function.Restart) {
-                SceneManager.LoadScene("Game");
+				Application.LoadLevel("Game");
+                //SceneManager.LoadScene("Game");
             }
             if (function == Function.Quit) {
                 Application.Quit();
