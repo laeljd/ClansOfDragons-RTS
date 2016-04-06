@@ -21,6 +21,7 @@ namespace FATEC.ClansOfDragons.Behaviours {
         public GameObject BaseMenu;
         [Tooltip("Prefab mark of the selected")]
         public GameObject mark;
+
         /// <summary>Current mark</summary>
         protected GameObject currentMark;
         /// <summary> Unit selected to move </summary>

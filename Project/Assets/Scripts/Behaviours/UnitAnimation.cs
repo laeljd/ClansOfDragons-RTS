@@ -19,8 +19,6 @@ namespace FATEC.ClansOfDragons.Behaviours {
 
         protected IEnumerator PlayAnimation() {
             while (true) {
-                Debug.Log("(sqrMagnitud" + unit.velocity.sqrMagnitude);
-
                 if (unit.velocity.sqrMagnitude > 0 && detector.objectCollider == null) {
                     unitAnim.Play("Move");
                 }

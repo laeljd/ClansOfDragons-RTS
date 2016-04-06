@@ -7,37 +7,27 @@ namespace FATEC.ClansOfDragons.Behaviours {
     /// Player Buy Unit ic click a button
     /// </summary>
     public class BuyUnit : MonoBehaviour {
-        [Tooltip("Button for buy unit.")]
-        public Button button;
         [Tooltip("Coins of player to discont.")]
         public Coins coins;
         [Tooltip("Prefab unit to instantiate.")]
         public GameObject prefab;
         [Tooltip("Position to instantiate.")]
         public new Transform transform;
-        [Tooltip("Base menu to enable/disabe")]
+        [Tooltip("Base menu to enable/disable")]
         public GameObject BaseMenu;
         [Tooltip("Amount of the units")]
         public UnitCount unitAmount;
-        [Tooltip("Type of unit for discont the value of coins")]
-        public CenterConfig.unitType type;
-
-        /// <summary>Value of unit.</summary>
-        protected int unitValue;
         /// <summary>Center of config values.</summary>
         protected CenterConfig unitValueConfig;
 
         protected void Awake() {
             this.unitValueConfig = new CenterConfig();
-            this.unitValue = this.unitValueConfig.GetValue((int)type);
-            if (button != null) {
-                button.onClick.AddListener(delegate { Buy((int)this.type); });
-            }
         }
 
+        ///<param name="type">Type of unit, 0 UnitLight, 1 UnitMedium, 2 UnitHeavy, 3 Base</param>
         public void Buy(int type) {
             if (this.unitAmount.currentUnits < this.unitAmount.unitAmountMax) {
-                if (coins.ChangeCoins(this.unitValue)) {
+                if (coins.ChangeCoins(unitValueConfig.GetValue(type))) {
                     GameObject.Instantiate(this.prefab, this.transform.position, Quaternion.identity);
                     BaseMenu.SetActive(false);
                 }
