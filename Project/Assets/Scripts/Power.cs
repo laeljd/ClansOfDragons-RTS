@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
-namespace FATEC.ClansOfDragons.Behaviours {
+namespace FATEC.ClansOfDragons {
     public class Power : MonoBehaviour {
         /// <summary>Represents the font of power.</summary>
         public new string tag;

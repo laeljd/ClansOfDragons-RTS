@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace FATEC.ClansOfDragons.Behaviours {
+using FATEC.ClansOfDragons.Behaviours;
+
+namespace FATEC.ClansOfDragons {
     /// <summary>
     /// Represents the Artificial Intelegence of Enemy
     /// </summary>

@@ -63,17 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Behaviours\AI.cs" />
+    <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Behaviours\BaseBehaviour.cs" />
     <Compile Include="Assets\Scripts\Behaviours\ButtonChangeScene.cs" />
     <Compile Include="Assets\Scripts\Behaviours\ButtonQuit.cs" />
     <Compile Include="Assets\Scripts\Behaviours\BuyUnit.cs" />
     <Compile Include="Assets\Scripts\Behaviours\CameraFaceBillboard.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\Coins.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Behaviours\DestroyOnTime.cs" />
     <Compile Include="Assets\Scripts\Behaviours\Detector.cs" />
-    <Compile Include="Assets\Scripts\Behaviours\Health.cs" />
     <Compile Include="Assets\Scripts\Behaviours\HealthManager.cs" />
     <Compile Include="Assets\Scripts\Behaviours\LookAt.cs" />
     <Compile Include="Assets\Scripts\Behaviours\MouseActions.cs" />
@@ -84,6 +82,8 @@
     <Compile Include="Assets\Scripts\Behaviours\UnitAnimation.cs" />
     <Compile Include="Assets\Scripts\Behaviours\UnitCount.cs" />
     <Compile Include="Assets\Scripts\CenterConfig.cs" />
+    <Compile Include="Assets\Scripts\Coins.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Power.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

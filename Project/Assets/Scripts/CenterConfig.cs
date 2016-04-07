@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-
-
-namespace FATEC.ClansOfDragons.Behaviours {
+﻿
+namespace FATEC.ClansOfDragons {
     public class CenterConfig{
 
         public float unitLightHealt = 18f;

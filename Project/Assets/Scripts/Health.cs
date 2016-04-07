@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using FATEC.ClansOfDragons.Behaviours;
+using UnityEngine;
 //using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace FATEC.ClansOfDragons.Behaviours {
+namespace FATEC.ClansOfDragons {
     /// <summary>
     /// Provides health to a game object.
     /// </summary>

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace FATEC.ClansOfDragons.Behaviours {
+namespace FATEC.ClansOfDragons {
     /// <summary>
     /// Coins of Players
     /// </summary>
